@@ -9,34 +9,41 @@ import { useSelector } from 'react-redux';
 
 function Body({course, modules, chapters}) {
 
-  const [currVideo, setCurrVideo] = useState(null)
+  const [videoKey, setVideoKey] = useState(0)
 
-  const chapter = useSelector(state => state.chapterLearning)
-
+  const chapter = useSelector((state) => state.learningRoom.chapter);
+  console.log(chapter)
+  
   useEffect(()=>{
      if (chapters.length > 0) {
-       setCurrVideo(chapters[0].video);
+       setVideoKey((prevKey) => prevKey + 1);
      }
+     
   },[chapters])
 
   useEffect(()=>{
     if (chapter) {
-      setCurrVideo(chapter.video)
+      setVideoKey((prevKey) => prevKey + 1);
     }
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   },[chapter])
-
-  console.log(chapters, currVideo)
 
   
   return (
     <div className="">
       <div className="grid md:grid-cols-4">
         <div className="md:col-span-3">
-          <div className="h-3/4">
-            { currVideo &&<VideoPlayer
+          <div className="h-96">
+            { videoKey &&<VideoPlayer
               height={"full"}
               width={"full"}
-              video={currVideo}
+              key={videoKey}
+              chapter={chapter?.chapter || chapters[0]}
+              video={chapter?.chapter?.video || chapters[0]?.video}
               controls={true}
               disabled={false}
               autoPlay={true}

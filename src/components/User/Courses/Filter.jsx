@@ -6,7 +6,7 @@ import axiosInstance from '../../../axios/axiosConfig'
 import { debounce } from "lodash"; 
 import toast from 'react-hot-toast'
 import Body from './Body'
-import { setCoursesLoad } from '../../../redux/Client/CoursesLoad'
+import { setCoursesLoad } from '../../../redux/Student/CoursesLoad'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");

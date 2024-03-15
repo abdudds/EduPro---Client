@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
-import { setCourseData } from '../../../redux/Client/CourseOnPayment';
+import { setCourseData } from '../../../redux/Student/CourseOnPayment';
 import { Spinner } from '@material-tailwind/react';
 import axiosInstance from '../../../axios/axiosConfig';
 import Success from './Success';
@@ -22,7 +22,6 @@ function Payment() {
    const [status, setStatus] = useState('')
    const [message, setMessage] = useState('')
 
-   console.log(paymentMode,'++++++++++=========')
    useEffect(() => {
      if (locationData) {
        setCourseDataState(locationData)}

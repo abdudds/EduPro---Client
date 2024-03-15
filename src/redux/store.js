@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./authContext";
 import tutorReducer from "./tutorAuth"
-import CoursesLoad from "./Client/CoursesLoad";
-import { CourseOnPayment } from "./Client/CourseOnPayment"; 
+import CoursesLoad from "./Student/CoursesLoad";
+import { CourseOnPayment } from "./Student/CourseOnPayment"; 
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import LoadChapter from "./Client/LoadChapter";
+import LoadChapter from "./Student/LoadChapter";
 
 const persistConfig = { key: "client", storage };
 const persistedauthReducer = persistReducer(persistConfig, authReducer);
@@ -26,7 +26,7 @@ export const store = configureStore({
     tutor: tutorPersistorReducer,
     CoursesLoad: CoursesLoad,
     CourseOnPayment: CourseOnPaymentReducer,
-    chapterLearning: chapterPersistorReducer,
+    learningRoom: chapterPersistorReducer,
   },
 });
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axiosInstance from '../../../axios/axiosConfig';
 import toast from 'react-hot-toast';
-import { setPurchasedCourses } from '../../../redux/Client/CoursesLoad';
+import { setPurchasedCourses } from '../../../redux/Student/CoursesLoad';
 
 function Body() {
     const location = useLocation();
